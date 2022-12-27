@@ -1,11 +1,5 @@
-const { readFile } = require("fs");
-console.log("started the first task");
-readFile("./content/first.txt", "utf8", (err, result) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  console.log(result);
-  console.log("completed first task");
-});
-console.log("starting new task");
+setInterval(() => {
+  console.log("hello world");
+}, 2000);
+console.log("I will run first");
+//process stays alive till ctrl+c
