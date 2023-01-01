@@ -1,8 +1,2 @@
-This should be the third text
-This text will be appended with the previous text
-This text will be appended with the previous text
-This text will be appended with the previous text
-This text will be appended with the previous text
-This text will be appended with the previous text
-This text will be appended with the previous text
-This text will be appended with the previous text
+This is awesome Helloo first text! hello second text
+This is awesome Helloo first text! hello second text
