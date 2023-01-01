@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
   res.end();
 });
 server.listen(5000);
-
+//listen is asynchronous and the process will always stay alive
 // const http = require("http");
 
 // const server = http.createServer((req, res) => {

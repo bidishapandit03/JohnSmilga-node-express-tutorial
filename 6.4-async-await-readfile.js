@@ -1,3 +1,4 @@
+//helps in getting getting rid of nested callbacks
 const { readFile } = require("fs");
 
 const getText = (path) => {
