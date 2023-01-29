@@ -1,13 +1,18 @@
-//event-driven programming
-//used heavily in Node.js
-//the order matters-first we have to listen then emit
-const EventEmitter = require("events");
-const customEmitter = new EventEmitter();
-customEmitter.on("response", () => {
-  console.log(`Some other logic`);
-});
-customEmitter.on("response", (name, id) => {
-  console.log(`data received ${name} with id${id}`);
-});
+var http = require("http");
+var fs = require("fs");
 
-customEmitter.emit("response", "john", 38);
+http
+  .createServer(function (req, res) {
+    // const text = fs.readFileSync('./content/big.txt', 'utf-8')
+    // res.end(text);
+    //pipe method helps in pushing the readstream to write stream
+    //we read in chunk and then write in chunk as well
+    const fileStream = fs.createReadStream("./content/big.txt");
+    fileStream.on("open", () => {
+      fileStream.pipe(res);
+    });
+    fileStream.on("err", (error) => {
+      res.end(error);
+    });
+  })
+  .listen(5000);
