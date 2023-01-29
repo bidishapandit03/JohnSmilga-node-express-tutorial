@@ -1,20 +1,13 @@
-const { readFile, writeFile } = require("fs");
-const util = require("util");
-const readFilePromise = util.promisify(readFile);
-const writeFilePromise = util.promisify(writeFile);
+//event-driven programming
+//used heavily in Node.js
+//the order matters-first we have to listen then emit
+const EventEmitter = require("events");
+const customEmitter = new EventEmitter();
+customEmitter.on("response", () => {
+  console.log(`Some other logic`);
+});
+customEmitter.on("response", (name, id) => {
+  console.log(`data received ${name} with id${id}`);
+});
 
-const start = async () => {
-  try {
-    const first = await readFilePromise("./content/first.txt", "utf-8");
-    const second = await readFilePromise("./content/second.txt", "utf-8");
-    await writeFilePromise(
-      "./content/third.txt",
-      ` This is awesome ${first} ${second}`,
-      { flag: "a" }
-    );
-    console.log(first, second);
-  } catch (error) {
-    console.log(error);
-  }
-};
-start();
+customEmitter.emit("response", "john", 38);

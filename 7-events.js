@@ -1,3 +1,5 @@
+//event-driven programming
+//used heavily in Node.js
 const EventEmitter = require("events");
 const customEmitter = new EventEmitter();
 customEmitter.on("response", (name, id) => {

@@ -4,3 +4,4 @@ server.on("request", (req, res) => {
   res.end("welcome");
 });
 server.listen(5000);
+//server is an extenstion of event emitter
